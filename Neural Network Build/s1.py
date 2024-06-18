@@ -1,3 +1,5 @@
+import numpy as np
+
 input = [3, 6, 8]
 weights = [
     [1.1, 3.01, 2.3],
@@ -6,10 +8,6 @@ weights = [
 ]
 biases = [3, 0.5, 2]
 
-output = []
+output =  np.dot(input,weights) + biases
 
-for weight, bias in zip(weights, biases):
-    o = sum(i * w for i, w in zip(input, weight)) + bias
-    output.append(o)
-
-print(output)
+print(sum(output))
