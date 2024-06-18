@@ -9,7 +9,8 @@ weights = [
     [1.6, 6.4, -1.9]
 ]
 biases = [3, 0.5, 2]
+biases_layer2 = np.array([1, -1, 2.5])
 
-output =  np.dot(input,weights) + biases
-
-print(output)
+layer_1 =  np.dot(input,weights) + biases
+layer_2 =  np.dot(layer_1,weights) + biases_layer2
+print(layer_2)
