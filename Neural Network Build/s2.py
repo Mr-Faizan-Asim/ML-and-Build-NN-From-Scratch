@@ -17,9 +17,9 @@ layer1  = Layer_Dense(3,3)
 layer1.forward(X)
 print(layer1.output)
 
-print("2nd")
+print("Next 2nd Layer")
 layer2 = Layer_Dense(3,5)
-layer2.forward(X)
+layer2.forward(layer1.output)
 print(layer2.output)
 
 
