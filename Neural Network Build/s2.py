@@ -1,19 +1,12 @@
 import numpy as np
+from nnfs.datasets import spiral_data
 
 X = [[3, 6, 8],
          [2,5.5,-3],
          [-1.5,2.7,3.3]]
-input = [3, 6, 8,-1.5,2.7,3.3]
 
-Output = []
-for i in input:
-    if i > 0:
-        Output.append(i)
-    else:
-        Output.append(0)
-print(Output)
+X, y = spiral_data(100,3) 
 
-'''
 class Layer_Dense:
     def __init__(self,n_inputs,n_neurons):
         self.weights = 0.1 * np.random.randn(n_inputs,n_neurons)
@@ -21,18 +14,15 @@ class Layer_Dense:
     def forward(self,input):
         self.output = np.dot(input,self.weights) + self.biases
 
+class Activation_Relu:
+    def forward(self,inputs):
+        self.output = np.maximum(0,inputs)
 
-
-layer1  = Layer_Dense(3,3)
+layer1  = Layer_Dense(2,5)
+activate_function = Activation_Relu()
 layer1.forward(X)
 print(layer1.output)
-
-print("Next 2nd Layer")
-layer2 = Layer_Dense(3,5)
-layer2.forward(layer1.output)
-print(layer2.output)
-'''
-
-
-
+print("Result With Activation Function")
+activate_function.forward(layer1.output)
+print(activate_function.output)
 
